@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visual Perception Study</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Welcome Section -->
+    <div id="welcome" class="container">
+        <div class="header">
+            <h1>VISUAL.STUDY()</h1>
+            <p>Exploring Compositional Preferences in Visual Perception</p>
+        </div>
+        <div class="section">
+            <h2>Welcome to the Experiment</h2>
+            <p>This study explores how humans perceive and prefer different visual compositions.</p>
+            <p>You will see 10 pairs of arrow compositions and need to choose which one you prefer visually.</p>
+            <p>There are no right or wrong answers - we're interested in your natural preferences.</p>
+            <button class="button" onclick="startExperiment()">start()</button>
+        </div>
+    </div>
+
+    <!-- Instructions Section -->
+    <div id="instructions" class="container hidden">
+        <div class="header">
+            <h2>instructions.read()</h2>
+        </div>
+        <div class="section">
+            <h3>Task Instructions</h3>
+            <ol>
+                <li>You will see two arrow compositions side by side</li>
+                <li>Take a moment to look at both compositions</li>
+                <li>Click on the composition you find more visually appealing</li>
+                <li>This will be repeated for 10 trials</li>
+            </ol>
+            <button class="button" onclick="startTrials()">begin_trials()</button>
+        </div>
+    </div>
+
+    <!-- Experiment Section -->
+    <div id="experiment" class="container hidden">
+        <div class="header">
+            <h2>trial_<span id="trial-number">1</span></h2>
+        </div>
+        <div class="section">
+            <div class="progress-bar">
+                <div class="progress-bar-fill" id="progress"></div>
+            </div>
+            <div class="compositions-container">
+                <div class="composition" onclick="recordResponse('left')">
+                    <div id="stimulus-left" class="stimulus-container"></div>
+                </div>
+                <div class="composition" onclick="recordResponse('right')">
+                    <div id="stimulus-right" class="stimulus-container"></div>
+                </div>
+            </div>
+            <p class="instruction-text">Click on the composition you prefer</p>
+        </div>
+    </div>
+
+    <!-- Results Section -->
+    <div id="results" class="container hidden">
+        <div class="header">
+            <h2>results.display()</h2>
+        </div>
+        <div class="section">
+            <div class="chart-container">
+                <canvas id="resultsChart"></canvas>
+                <div id="percentage-results" class="results-text"></div>
+            </div>
+            <div class="save-section">
+                <h3>Save Your Results</h3>
+                <p>Click below to download your results and screenshot:</p>
+                <button class="button" onclick="downloadResults()">download()</button>
+            </div>
+        </div>
+        <div class="section">
+            <h3>Study Debrief</h3>
+            <p>This experiment investigated the "inward bias" in visual composition preferences.</p>
+            <p>The inward bias suggests that when viewing 2D compositions containing a figure with a 'front', people tend to prefer compositions where the figure is either centered or facing toward the center of the frame.</p>
+            <p>This preference may be related to our visual system's prediction about object movement - we expect objects to move in the direction they're facing, and prefer compositions where this predicted movement keeps the object within our view.</p>
+            <p>Your results show the percentage of times you chose compositions that followed this inward bias versus those that didn't.</p>
+            <p>Thank you for participating in this research!</p>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
