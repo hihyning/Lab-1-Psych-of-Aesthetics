@@ -3,47 +3,76 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Visual Perception Study</title>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>Psychology of Aesthetics+Design Lab1</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Urbanist:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="./Lab1 Favicon copy.png">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <!-- Welcome Section -->
     <div id="welcome" class="container">
+        <div class="title"><img src="./Lab1 Favicon.png">Psychology of Aesthetics & Design&nbsp;&nbsp;|&nbsp;&nbsp;Fall 2024</div>
         <div class="header">
-            <h1>VISUAL.STUDY()</h1>
-            <p>Exploring Compositional Preferences in Visual Perception</p>
+            <h1>Perception Preferences.</h1>
+            <h2>Exploring Compositional Preferences in Visual Perception</h2>
+        </div>
+        <div class="scroll-container">
+            <div class="scroll-content">
+                <!-- First group of images -->
+                <div class="image-group">
+                    <img src="./Lab1 Decor1.orange-clearmedium.preview.png" alt="Image 1">
+                    <img src="./Lab1 Decor2.orange-clearmedium.preview.png" alt="Image 2">
+                    <img src="./Lab1 Decor3.orange-clearmedium.preview.png" alt="Image 3">
+                    <img src="./Lab1 Decor4.orange-clearmedium.preview.png" alt="Image 4">
+                    <img src="./Lab1 Decor5.orange-clearmedium.preview.png" alt="Image 5">
+                    <img src="./inward/2.png" alt="Image 5">
+
+                </div>
+                <!-- Duplicate group for seamless loop -->
+                <div class="image-group">
+                    <img src="./Lab1 Decor1.orange-clearmedium.preview.png" alt="Image 1">
+                    <img src="./Lab1 Decor2.orange-clearmedium.preview.png" alt="Image 2">
+                    <img src="./Lab1 Decor3.orange-clearmedium.preview.png" alt="Image 3">
+                    <img src="./Lab1 Decor4.orange-clearmedium.preview.png" alt="Image 4">
+                    <img src="./Lab1 Decor5.orange-clearmedium.preview.png" alt="Image 5">
+                </div>
+            </div>
         </div>
         <div class="section">
-            <h2>Welcome to the Experiment</h2>
-            <p>This study explores how humans perceive and prefer different visual compositions.</p>
-            <p>You will see 10 pairs of arrow compositions and need to choose which one you prefer visually.</p>
-            <p>There are no right or wrong answers - we're interested in your natural preferences.</p>
-            <button class="button" onclick="startExperiment()">start()</button>
+            <h3>WELCOME TO LAB 1</h3>
+            <ul class="study-info">
+                <li><p>This study explores how humans perceive and prefer different visual compositions.</p></li>
+                <li><p>You will see 10 pairs of arrow compositions and need to choose which one you prefer visually.</p></li>
+                <li><p>There are no right or wrong answers - we're interested in your natural preferences.</p></li>
+            </ul>
         </div>
+        <button class="button" id="start-button" onclick="startExperiment()">START</button>
     </div>
 
     <!-- Instructions Section -->
     <div id="instructions" class="container hidden">
         <div class="header">
-            <h2>instructions.read()</h2>
+            <h2>overview</h2>
         </div>
         <div class="section">
-            <h3>Task Instructions</h3>
-            <ol>
-                <li>You will see two arrow compositions side by side</li>
-                <li>Take a moment to look at both compositions</li>
-                <li>Click on the composition you find more visually appealing</li>
-                <li>This will be repeated for 10 trials</li>
-            </ol>
-            <button class="button" onclick="startTrials()">begin_trials()</button>
+            <h1>Task Instructions</h1>
+            <ul class="study-info">
+                <li><P>You will see two arrow compositions side by side</P></li>
+                <li><p>Take a moment to look at both compositions</p></li>
+                <li><p>Choose the composition you find more visually appealing</p></li>
+                <li><p>This will be repeated for 10 trials</p></li>
+                <li><p>There will be a debrief and explanation a the end</p></li>
+            </ul></div>
+            <button class="button"id="begintrials-button" onclick="startTrials()">BEGIN TRAILS</button>
         </div>
     </div>
 
     <!-- Experiment Section -->
     <div id="experiment" class="container hidden">
         <div class="header">
-            <h2>trial_<span id="trial-number">1</span></h2>
+            <h2>TRIAL <span id="trial-number">1</span></h2>
         </div>
         <div class="section">
             <div class="progress-bar">
@@ -64,27 +93,28 @@
     <!-- Results Section -->
     <div id="results" class="container hidden">
         <div class="header">
-            <h2>results.display()</h2>
+            <h2>RESULTS</h2>
         </div>
-        <div class="section">
+        <div class="section2">
             <div class="chart-container">
                 <canvas id="resultsChart"></canvas>
                 <div id="percentage-results" class="results-text"></div>
             </div>
+            <div class="section3" id="debrief">
+                <h3>Study Debrief</h3>
+                <p>This experiment investigated the "inward bias" in visual composition preferences, modelled after <a href="https://www.thomaslanglois.net/files/Effects-of-Implied-Motion-and-Facing-Direction-on-Positional-Preferences-in-Single-Object-Pictures.pdf">Palmer and Langlois (2017)'s</a> "Effects of Implied Motion and Facing Direction on Positional Preferences in Single-Object Pictures" using divers as stimuli.</p>
+                <p>The <a href="https://www.sciencedirect.com/science/article/abs/pii/S0010027718300404#:~:text=Thus%2C%20the%20inward%20bias%20may,move%20out%20of%20view%2C%20especially">inward bias</a> suggests that when viewing 2D compositions containing a figure with a 'front', people tend to prefer compositions where the figure is either centered or facing toward the center of the frame.</p>
+                <p>This preference may be related to our visual system's prediction about object movement - we expect objects to move in the direction they're facing, and prefer compositions where this predicted movement keeps the object within our view.</p><br>
+                <p>Your results show the percentage of times you chose compositions that followed this inward bias versus those that didn't.</p>
+                <p>Thank you for participating in this experiment!</p>
+            </div>
             <div class="save-section">
                 <h3>Save Your Results</h3>
                 <p>Click below to download your results and screenshot:</p>
-                <button class="button" onclick="downloadResults()">download()</button>
+                <button class="button" onclick="downloadResults()">DOWNLOAD</button>
             </div>
         </div>
-        <div class="section">
-            <h3>Study Debrief</h3>
-            <p>This experiment investigated the "inward bias" in visual composition preferences.</p>
-            <p>The inward bias suggests that when viewing 2D compositions containing a figure with a 'front', people tend to prefer compositions where the figure is either centered or facing toward the center of the frame.</p>
-            <p>This preference may be related to our visual system's prediction about object movement - we expect objects to move in the direction they're facing, and prefer compositions where this predicted movement keeps the object within our view.</p>
-            <p>Your results show the percentage of times you chose compositions that followed this inward bias versus those that didn't.</p>
-            <p>Thank you for participating in this research!</p>
-        </div>
+       
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
