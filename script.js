@@ -228,8 +228,8 @@ function createResultsChart() {
     const percentageResults = document.getElementById('percentage-results');
     percentageResults.innerHTML = `
         <h3>Results Summary</h3>
-        <p>You chose inward-facing compositions ${results.inwardPercentage}% of the time (${results.inwardCount} out of ${results.total} trials)</p>
-        <p>Average reaction time: ${results.averageReactionTime} seconds</p>
+        <p>You chose inward-facing compositions <span class="dynamic-text">${results.inwardPercentage}%</span> of the time (<span class="dynamic-text">${results.inwardCount}</span> out of ${results.total} trials)</p>
+        <p>Average reaction time: <span class="dynamic-text">${results.averageReactionTime}</span> seconds</p>
     `;
 }
 

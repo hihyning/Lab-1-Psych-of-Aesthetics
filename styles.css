@@ -70,6 +70,10 @@ h3 {
  color: rgb(255,69,0);
 }
 
+.dynamic-text {
+    color: rgb(255,69,0);
+}
+
 .study-info {
     list-style: none; /* Removes default bullets */
     padding-left: 0; /* Removes default padding */
@@ -127,7 +131,7 @@ h3 {
     display: flex;
     animation: scroll 15s linear infinite;
     /* Double the content for seamless loop */
-    width: 200%;
+    height: 200%;
 }
 
 .image-group {
@@ -136,7 +140,7 @@ h3 {
 }
 
 .scroll-content img {
-    width: 20%; /* 5 images per group */
+    height: 50%; /* 5 images per group */
     max-height: 50vh;
     object-fit: cover;
     flex-shrink: 0;
@@ -298,6 +302,10 @@ ol li {
 
 #debrief a {
     color: rgb(255,69,0);
+}
+
+#debrief a:hover{
+    font-style: italic;
 }
 
 #debrief h3 {
