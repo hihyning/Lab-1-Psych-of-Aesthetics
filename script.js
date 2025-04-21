@@ -233,13 +233,21 @@ function createResultsChart() {
     `;
 }
 
-function downloadResults() {
+async function downloadResults() {
     const results = {
         timestamp: new Date().toISOString(),
         summary: calculateResults(),
         totalDuration: ((Date.now() - config.startTime) / 1000).toFixed(2) + ' seconds',
         detailedResults: config.results
     };
+
+    // Send to Google Sheet
+    try {
+        await appendToSheet(results);
+        console.log('Results successfully sent to Google Sheets');
+    } catch (error) {
+        console.error('Failed to send results to Google Sheets:', error);
+    }
 
     // Download JSON results
     const blob = new Blob([JSON.stringify(results, null, 2)], { type: 'application/json' });

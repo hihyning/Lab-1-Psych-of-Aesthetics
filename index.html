@@ -4,8 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Psychology of Aesthetics+Design Lab1</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Custom Scripts -->
+    <script src="sheets-integration.js"></script>
+    <script src="script.js"></script>
+    <!-- Styles -->
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&family=Urbanist:ital,wght@0,100..900;1,100..900&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" sizes="32x32" href="./Lab1 Favicon copy.png">
     <link rel="stylesheet" href="styles.css">
@@ -48,6 +52,9 @@
                 <li><p>You will see 10 pairs of arrow compositions and need to choose which one you prefer visually.</p></li>
                 <li><p>There are no right or wrong answers - we're interested in your natural preferences.</p></li>
             </ul>
+            <div class="privacy-notice" style="padding: 1em;">
+                <p style="font-size: 0.9em; color: rgb(255,69,0); line-height: 1.1em;">*Anonymous data from this experiment will be collected for research purposes.<br>No personal or identifiable information is gathered.<br>By clicking "START", you consent to the anonymous collection of your responses.</p>
+            </div>
         </div>
         <button class="button" id="start-button" onclick="startExperiment()">START</button>
     </div>
@@ -117,8 +124,5 @@
         </div>
        
     </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
-    <script src="script.js"></script>
 </body>
 </html>
