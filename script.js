@@ -1,5 +1,5 @@
 // Experiment Configuration
-const config = {
+const experimentConfig = {
     totalTrials: 10,
     currentTrial: 0,
     results: [],
@@ -56,7 +56,7 @@ function generateTrialPairs() {
     const pairs = [];
     
     // Create 10 unique pairs
-    for (let i = 0; i < config.totalTrials; i++) {
+    for (let i = 0; i < experimentConfig.totalTrials; i++) {
         const isInwardLeft = Math.random() < 0.5;
         pairs.push({
             left: isInwardLeft ? inwardArrows[i] : outwardArrows[i],
@@ -71,14 +71,14 @@ function generateTrialPairs() {
 
 function updateProgress() {
     const progress = document.getElementById('progress');
-    const width = (config.currentTrial / config.totalTrials) * 100;
+    const width = (experimentConfig.currentTrial / experimentConfig.totalTrials) * 100;
     progress.style.width = `${width}%`;
-    document.getElementById('trial-number').textContent = config.currentTrial + 1;
+    document.getElementById('trial-number').textContent = experimentConfig.currentTrial + 1;
 }
 
 // Experiment Flow Functions
 function startExperiment() {
-    config.startTime = Date.now();
+    experimentConfig.startTime = Date.now();
     document.getElementById('welcome').classList.add('hidden');
     document.getElementById('instructions').classList.remove('hidden');
 }
@@ -91,12 +91,12 @@ function startTrials() {
 }
 
 function showTrial() {
-    if (config.currentTrial >= config.totalTrials) {
+    if (experimentConfig.currentTrial >= experimentConfig.totalTrials) {
         showResults();
         return;
     }
     
-    const trial = trials[config.currentTrial];
+    const trial = trials[experimentConfig.currentTrial];
     trial.trialStartTime = Date.now();
     
     // Update images
@@ -110,12 +110,12 @@ function showTrial() {
 }
 
 function recordResponse(choice) {
-    const trial = trials[config.currentTrial];
+    const trial = trials[experimentConfig.currentTrial];
     const chosenImage = choice === 'left' ? trial.left : trial.right;
     const isInwardChoice = (choice === trial.inwardPosition);
     
-    config.results.push({
-        trial: config.currentTrial + 1,
+    experimentConfig.results.push({
+        trial: experimentConfig.currentTrial + 1,
         chosenImageId: chosenImage.id,
         chosenImageDescription: chosenImage.description,
         chosenImageType: isInwardChoice ? 'inward' : 'outward',
@@ -123,7 +123,7 @@ function recordResponse(choice) {
         position: choice
     });
     
-    config.currentTrial++;
+    experimentConfig.currentTrial++;
     showTrial();
 }
 
@@ -134,10 +134,10 @@ function showResults() {
 }
 
 function calculateResults() {
-    const totalTrials = config.results.length;
-    const inwardChoices = config.results.filter(r => r.chosenImageType === 'inward').length;
+    const totalTrials = experimentConfig.results.length;
+    const inwardChoices = experimentConfig.results.filter(r => r.chosenImageType === 'inward').length;
     const inwardPercentage = (inwardChoices / totalTrials) * 100;
-    const averageReactionTime = config.results.reduce((acc, r) => acc + r.reactionTime, 0) / totalTrials;
+    const averageReactionTime = experimentConfig.results.reduce((acc, r) => acc + r.reactionTime, 0) / totalTrials;
     
     return {
         total: totalTrials,
@@ -237,8 +237,8 @@ async function downloadResults() {
     const results = {
         timestamp: new Date().toISOString(),
         summary: calculateResults(),
-        totalDuration: ((Date.now() - config.startTime) / 1000).toFixed(2) + ' seconds',
-        detailedResults: config.results
+        totalDuration: ((Date.now() - experimentConfig.startTime) / 1000).toFixed(2) + ' seconds',
+        detailedResults: experimentConfig.results
     };
 
     // Send to Google Sheet
