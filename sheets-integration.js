@@ -1,6 +1,6 @@
 // Google Sheets Integration
-// These values should be stored in your .env file and not committed to GitHub
-const SCRIPT_URL = process.env.GOOGLE_SCRIPT_URL || 'YOUR_GOOGLE_APPS_SCRIPT_URL';
+// Import configuration
+const SCRIPT_URL = config.SCRIPT_URL;
 
 // Append data to the spreadsheet
 async function appendToSheet(data) {
