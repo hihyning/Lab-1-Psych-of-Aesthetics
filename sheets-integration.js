@@ -8,8 +8,9 @@ let tokenClient;
 let gapiInited = false;
 let gisInited = false;
 
-// Google Apps Script Web App URL - Update this with your new deployment URL
-const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwcqAi9Y2vKSaJTzpM2DKv58kE2COL2TI7aOjGFZlqSKn705Xmuz5kVwGjOLZryjSsJlw/exec';
+// Google Apps Script Web App URL - DO NOT COMMIT THE REAL URL TO GITHUB
+// Replace this with your deployed web app URL when testing locally
+const SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL';
 
 // Append data to the spreadsheet
 async function appendToSheet(data) {
