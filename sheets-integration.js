@@ -1,6 +1,6 @@
 // Google Sheets Integration
-// Import configuration
-const SCRIPT_URL = config.SCRIPT_URL;
+// Import configuration from global scope
+const SCRIPT_URL = window.config.SCRIPT_URL;
 
 // Append data to the spreadsheet
 async function appendToSheet(data) {
