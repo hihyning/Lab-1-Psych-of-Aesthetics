@@ -1,16 +1,6 @@
 // Google Sheets Integration
-const SPREADSHEET_ID = '1hufTDMGb2zD1uSGnZZQVranXy0WNSUv2CbyJUorSvbg';
-const CLIENT_ID = '129125842923-511jr42ljd93n4jasag44trhaah5f3e3.apps.googleusercontent.com';
-const API_KEY = 'AIzaSyAUcCMRNEWhOC3HjqZZ6CBX3la5c46H94Y';
-const SCOPES = 'https://www.googleapis.com/auth/spreadsheets';
-
-let tokenClient;
-let gapiInited = false;
-let gisInited = false;
-
-// Google Apps Script Web App URL - DO NOT COMMIT THE REAL URL TO GITHUB
-// Replace this with your deployed web app URL when testing locally
-const SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL';
+// These values should be stored in your .env file and not committed to GitHub
+const SCRIPT_URL = process.env.GOOGLE_SCRIPT_URL || 'YOUR_GOOGLE_APPS_SCRIPT_URL';
 
 // Append data to the spreadsheet
 async function appendToSheet(data) {
