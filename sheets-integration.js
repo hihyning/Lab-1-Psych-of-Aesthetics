@@ -1,6 +1,6 @@
 // Google Sheets Integration
 // Import configuration from global scope
-const SCRIPT_URL = window.config.SCRIPT_URL;
+const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwcqAi9Y2vKSaJTzpM2DKv58kE2COL2TI7aOjGFZlqSKn705Xmuz5kVwGjOLZryjSsJlw/exec';
 
 // Append data to the spreadsheet
 async function appendToSheet(data) {
