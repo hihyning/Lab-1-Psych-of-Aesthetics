@@ -1,3 +1,8 @@
+// Configuration
+window.config = {
+    SCRIPT_URL: 'https://script.google.com/macros/s/AKfycbwcqAi9Y2vKSaJTzpM2DKv58kE2COL2TI7aOjGFZlqSKn705Xmuz5kVwGjOLZryjSsJlw/exec'  // Replace this with your actual Google Script URL
+};
+
 // Experiment Configuration
 const experimentConfig = {
     totalTrials: 10,
